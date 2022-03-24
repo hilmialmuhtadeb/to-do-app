@@ -8,17 +8,23 @@
 </template>
 
 <script>
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import {
+    library
+  } from '@fortawesome/fontawesome-svg-core'
+  import {
+    faCirclePlus
+  } from '@fortawesome/free-solid-svg-icons'
+  import {
+    FontAwesomeIcon
+  } from '@fortawesome/vue-fontawesome'
 
-library.add(faCirclePlus)
+  library.add(faCirclePlus)
 
-export default {
-  components: {
-    FontAwesomeIcon,
+  export default {
+    components: {
+      FontAwesomeIcon,
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>

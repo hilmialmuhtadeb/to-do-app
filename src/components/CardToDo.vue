@@ -1,16 +1,13 @@
 <template>
   <div class="card">
     <div class="card__header">
-      <div
-        class="indicator"
-        :class="{complete: todo.isCompleted}"
-      />
+      <div class="indicator" :class="{complete: todo.isCompleted}" />
       <div class="hamburger" @click="dropdownVisible = !dropdownVisible">
         <span></span>
         <span></span>
         <span></span>
         <ul :class="{active: dropdownVisible}">
-          <li>Edit</li>
+          <li @click="setModalVisible">Edit</li>
           <li>Selesai</li>
           <li>Hapus</li>
         </ul>
@@ -31,16 +28,22 @@
 </template>
 
 <script>
-export default {
-  props: {
-    todo: Object,
-  },
-  data() {
-    return {
-      dropdownVisible: false
+  import {
+    mapMutations
+  } from 'vuex'
+  export default {
+    props: {
+      todo: Object,
+    },
+    data() {
+      return {
+        dropdownVisible: false
+      }
+    },
+    methods: {
+      ...mapMutations(['setModalVisible'])
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -51,7 +54,7 @@ export default {
     box-shadow: $box-shadow;
     border-radius: $border-radius;
     position: relative;
-    
+
     &__header {
       display: flex;
       justify-content: space-between;
@@ -98,7 +101,7 @@ export default {
         ul.active {
           display: block;
         }
-        
+
         span {
           display: block;
           height: 3px;
@@ -110,7 +113,7 @@ export default {
 
     &__body {
       padding: 1em 0;
-      
+
       p.due {
         background-color: $orange;
         display: inline-block;

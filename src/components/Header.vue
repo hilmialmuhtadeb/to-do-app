@@ -8,12 +8,12 @@
     <div class="header__right">
       <div class="filter">
         <h4>Tampilkan Tugas Yang</h4>
-        <filter-button>Belum Selesai</filter-button>
-        <filter-button>Sudah Selesai</filter-button>
+        <filter-button :isActive="true">Belum Selesai</filter-button>
+        <filter-button :isActive="false">Sudah Selesai</filter-button>
       </div>
       <div class="sort">
         <h4>Urut Berdasarkan</h4>
-        <filter-button>Tanggal Dibuat (Terbaru)</filter-button>
+        <filter-button :isActive="true">Tanggal Dibuat (Terbaru)</filter-button>
       </div>
     </div>
   </header>

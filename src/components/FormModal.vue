@@ -35,16 +35,19 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+  import {
+    mapGetters,
+    mapMutations
+  } from 'vuex'
 
-export default {
-  methods: {
-    ...mapMutations(['setModalVisible'])
-  },
-  computed: {
-    ...mapGetters(['modalVisible'])
+  export default {
+    methods: {
+      ...mapMutations(['setModalVisible'])
+    },
+    computed: {
+      ...mapGetters(['modalVisible'])
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -56,11 +59,16 @@ export default {
     z-index: 1;
     right: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 
     &__content {
       position: relative;
@@ -79,7 +87,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
         .close {
           color: $red;
           font-size: 1.6em;
@@ -94,7 +102,8 @@ export default {
         .form-group {
           margin-bottom: 2em;
 
-          h4, p {
+          h4,
+          p {
             margin: .6em 0;
           }
 
@@ -110,6 +119,7 @@ export default {
 
         .btn-wrapper {
           text-align: right;
+
           button {
             padding: .6em 2em;
             background-color: $blue;

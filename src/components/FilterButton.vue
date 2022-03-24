@@ -1,12 +1,14 @@
 <template>
-  <button>
+  <button :class="{active: isActive}">
     <slot />
   </button>
 </template>
 
 <script>
   export default {
-
+    props: {
+      isActive: Boolean
+    }
   }
 </script>
 
@@ -15,11 +17,17 @@
 
   button {
     padding: .6em 1.2em;
-    background-color: $blue;
-    color: white;
     border: 0;
     outline: none;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    background-color: white;
+    color: $black;
+    cursor: pointer;
+  }
+
+  button.active {
+    color: white;
+    background-color: $blue;
   }
 </style>
