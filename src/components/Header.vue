@@ -82,6 +82,7 @@
 
       &__right {
         grid-template-columns: 1fr;
+        gap: 2em;
         margin-left: auto;
       }
     }
@@ -95,6 +96,14 @@
         grid-template-columns: 1fr 1fr;
         margin-right: auto;
         width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .header {
+      &__right {
+        grid-template-columns: 1fr;
       }
     }
   }

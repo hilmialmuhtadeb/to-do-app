@@ -144,4 +144,12 @@
       }
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .modal {
+      &__content {
+        width: 100%;
+      }
+    }
+  }
 </style>

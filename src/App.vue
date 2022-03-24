@@ -93,4 +93,12 @@
       }
     }
   }
+
+  @media screen and (max-width: 600px) {
+    #app {
+      .todos {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
 </style>

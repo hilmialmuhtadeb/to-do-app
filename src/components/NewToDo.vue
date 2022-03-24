@@ -41,6 +41,7 @@
     box-shadow: $box-shadow;
     cursor: pointer;
     transition: .2s;
+    padding: 4em 0;
 
     .icon {
       display: inline-block;
