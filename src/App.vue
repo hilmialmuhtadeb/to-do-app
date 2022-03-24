@@ -3,7 +3,7 @@
     <custom-header />
     <div class="todos">
       <template v-if="isTodos">
-        <new-to-do />
+        <new-to-do @clicked="setModalVisible" />
         <card-to-do
           v-for="todo in todos"
           :key="todo.id"
@@ -14,6 +14,7 @@
         <card-skeleton v-for="i in 7" :key="i"/>
       </template>
     </div>
+    <form-modal />
   </div>
 </template>
 
@@ -22,7 +23,9 @@ import CustomHeader from './components/Header.vue'
 import NewToDo from './components/NewToDo.vue'
 import CardSkeleton from './components/CardSkeleton.vue'
 import CardToDo from './components/CardToDo.vue'
+import FormModal from './components/FormModal.vue'
 import todos from './data/todos'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
@@ -30,13 +33,20 @@ export default {
     CustomHeader,
     CardSkeleton,
     CardToDo,
-    NewToDo
+    NewToDo,
+    FormModal
   },
   data() {
     return {
-      isTodos: true,
-      todos
+      isTodos: false,
+      todos,
     }
+  },
+  methods: {
+    ...mapMutations(['setModalVisible'])
+  },
+  mounted() {
+    setTimeout(() => { this.isTodos = true }, 2000)
   }
 }
 </script>
@@ -63,6 +73,24 @@ export default {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  #app {
+    padding: 0 2em;
+
+    .todos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #app {
+    .todos {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 </style>

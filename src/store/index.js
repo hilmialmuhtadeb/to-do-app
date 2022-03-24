@@ -5,11 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    modalVisible: false
   },
   mutations: {
+    setModalVisible (state) {
+      state.modalVisible = !state.modalVisible
+    }
   },
   actions: {
   },
-  modules: {
+  getters: {
+    modalVisible: (state) => state.modalVisible
   }
 })

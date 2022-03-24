@@ -1,5 +1,5 @@
 <template>
-  <div class="new-todos">
+  <div class="new-todos" @click="$emit('clicked')">
     <span class="icon">
       <font-awesome-icon icon="fa-solid fa-circle-plus" />
     </span>

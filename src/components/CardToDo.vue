@@ -5,10 +5,15 @@
         class="indicator"
         :class="{complete: todo.isCompleted}"
       />
-      <div class="hamburger">
+      <div class="hamburger" @click="dropdownVisible = !dropdownVisible">
         <span></span>
         <span></span>
         <span></span>
+        <ul :class="{active: dropdownVisible}">
+          <li>Edit</li>
+          <li>Selesai</li>
+          <li>Hapus</li>
+        </ul>
       </div>
     </div>
     <div class="card__body">
@@ -28,11 +33,11 @@
 <script>
 export default {
   props: {
-    todo: Object
+    todo: Object,
   },
-  methods: {
-    statusBuilder(isCompleted) {
-      return isCompleted ? 'Complete' : 'Incomplete'
+  data() {
+    return {
+      dropdownVisible: false
     }
   }
 }
@@ -50,12 +55,15 @@ export default {
     &__header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      position: relative;
 
       .indicator {
         width: 24px;
         height: 24px;
         background-color: $red;
         border-radius: 50%;
+        box-shadow: $box-shadow;
       }
 
       .indicator.complete {
@@ -63,12 +71,33 @@ export default {
       }
 
       .hamburger {
-        height: 32px;
-        width: 32px;
-        padding: 8px;
+        height: 18px;
+        width: 24px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
+        cursor: pointer;
+
+        ul {
+          display: none;
+          position: absolute;
+          top: 2em;
+          right: 0;
+          list-style: none;
+          box-shadow: $box-shadow;
+
+          li {
+            background-color: white;
+            color: $secondary;
+            border: 1px solid $secondary;
+            padding: 0.4em 1.8em 0.4em 0.4em;
+          }
+        }
+
+        ul.active {
+          display: block;
+        }
         
         span {
           display: block;
@@ -89,6 +118,7 @@ export default {
         color: white;
         padding: 0.4em .8em;
         margin-bottom: 2.4em;
+        box-shadow: $box-shadow;
       }
 
       p.content {

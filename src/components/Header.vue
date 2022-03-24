@@ -60,11 +60,41 @@
 
     &__right {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 5fr 4fr;
       align-items: end;
 
       h4 {
         margin-bottom: .8em;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    .header {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 1080px) {
+    .header {
+      grid-template-columns: 2fr 1fr;
+      gap: 2em;
+
+      &__right {
+        grid-template-columns: 1fr;
+        margin-left: auto;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {
+      grid-template-columns: 1fr;
+
+      &__right {
+        grid-template-columns: 1fr 1fr;
+        margin-right: auto;
+        width: 100%;
       }
     }
   }
